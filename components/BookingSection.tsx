@@ -1,0 +1,45 @@
+'use client'
+
+import Cal, { getCalApi } from '@calcom/embed-react'
+import { useEffect } from 'react'
+
+export function BookingSection() {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: 'distribution-automation-strategy-call' })
+      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' })
+    })()
+  }, [])
+
+  return (
+    <section id="booking" className="py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-10">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
+            Ready?
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+            Book a strategy call.
+          </h2>
+          <p className="text-[var(--muted)] max-w-xl mx-auto">
+            We'll map out your first batch, discuss your niche, and show you exactly 
+            how Distribution Pilot fits your workflow.
+          </p>
+        </div>
+
+        {/* Cal.com Embed */}
+        <div className="rounded-2xl bg-black/30 border border-white/10 overflow-hidden">
+          <div className="h-[720px]">
+            <Cal
+              namespace="distribution-automation-strategy-call"
+              calLink="liam-mason01/distribution-automation-strategy-call"
+              style={{ width: '100%', height: '100%', overflow: 'scroll' }}
+              config={{ layout: 'month_view' }}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
