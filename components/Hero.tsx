@@ -1,15 +1,13 @@
 import Image from 'next/image'
+import { AnimatedHeadline } from './AnimatedHeadline'
 
 export function Hero() {
   return (
     <section aria-label="Hero" className="flex flex-col items-center pt-32 pb-14 sm:pt-40 sm:pb-24">
       {/* Main headline - centered */}
       <div className="w-full text-center px-5 sm:px-6 lg:px-8">
-        <h1 className="whitespace-nowrap text-[clamp(2rem,8vw,7rem)] font-bold leading-[1.0] tracking-tight">
-          <span className="text-accent">Automate</span> your{' '}
-          <span className="text-accent">growth</span>
-        </h1>
-        <p className="mx-auto mt-6 max-w-xl text-xl text-[var(--muted)] sm:text-2xl">
+        <AnimatedHeadline />
+        <p className="mx-auto mt-6 whitespace-nowrap text-xl text-[var(--muted)] sm:text-2xl">
           marketing with data powered content that performs
         </p>
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-7 text-[var(--muted2)]">
